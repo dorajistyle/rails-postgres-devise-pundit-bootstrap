@@ -1,0 +1,14 @@
+= semantic_form_for @user, html: { class: "form form-horizontal user" } do |f|
+  = f.inputs do
+    = f.input :email, :as => :email, :input_html=> { :readonly => true }
+    = error_span(@user[:email])
+    = f.input :username, :as => :string, :input_html=> { :readonly => true }
+    = error_span(@user[:username])
+    = f.input :name, :as => :string, :input_html=> { :readonly => true }
+    = error_span(@user[:name])    
+    = f.input :role, :as => :select, :collection => User.roles.keys, :include_blank => false
+    = error_span(@user[:role])
+  = f.actions do
+    = f.action :submit, :label => t('.update_user', :default => "Update User"),  :button_html => {class: "btn btn-primary"}
+  '
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'

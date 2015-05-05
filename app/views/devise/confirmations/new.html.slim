@@ -1,0 +1,13 @@
+= devise_error_messages!
+.panel.panel-default
+  .panel-heading
+    h4
+      = t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions')
+  .panel-body
+    = semantic_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, role: "form" }) do |f|
+      = f.inputs do
+        .form-group
+          = f.input :login, :as => :string, autofocus: true, :input_html=> { class: "form-control" }
+      = f.actions do
+        = f.action :submit, :label => t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions'),  :button_html => {class: "btn btn-primary"}
+= render "devise/shared/links"
