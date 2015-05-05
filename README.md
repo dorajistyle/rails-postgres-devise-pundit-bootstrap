@@ -112,11 +112,11 @@ Install packages below.
 * rails transporter
 
 ## Deployment
-Install [Compose](https://docs.docker.com/compose/install/) and execute below.
+Install [Compose](https://docs.docker.com/compose/install/) and execute below. [Reference](https://docs.docker.com/compose/rails/)
 ```bash
 docker-compose build
 docker-compose up
-docker-compose run web rake db:create
+docker-compose run web rake db:setup
 docker-compose run web rake db:migrate RAILS_ENV=development
 ```
 
